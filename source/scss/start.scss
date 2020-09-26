@@ -1,0 +1,20 @@
+//Переменные
+$maw:1420px; // Максимальная ширина контейнера №1
+$bgc:#fff; // Фоновый цвет
+$mm:10px; // Отсупы по бокам у элемента при достижении его максимальной ширины
+$as:.25s; // Скорость анимации у некоторых элементов
+// $as2:.6s; // Скорость анимации у других элементов
+$es:ease; //Плавность анимации
+$blackBgc:#1c1c1c; // background-color (темная тема)
+$blackHeadColor:#fff; // color у заголовка (темная тема)
+$whiteBgc:#fff; // background-color (светлая тема)
+$blackHeadColor:#000; // color у заголовка (светлая тема)
+$blackTextColor:#6e6e6e; // color у параграфов
+$ff:ProximaNova,sans-serif; // Шрифт по умолчанию
+$md1:1440px;// breakpoint №1
+$md2:1024px;// breakpoint №2
+$md3:910px; // breakpoint №3
+$md4:768px; // breakpoint №4
+$md5:540px; // breakpoint №5
+$md6:425px; // breakpoint №6
+$md8:375px; // breakpoint №7
