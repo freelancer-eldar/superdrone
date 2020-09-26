@@ -4,6 +4,7 @@
 	left: 0;
 	width: 100%;
 	padding: 65px 45px 0;
+	z-index: 200;
 	&__row {
 		width: 100%;
 		justify-content: space-between;
@@ -14,10 +15,6 @@
 
 	&__column {
 		align-items: center;
-	}
-
-	&__list {
-
 	}
 
 	&__item {
@@ -52,6 +49,9 @@
 				}
 			}
 		}
+		&:last-child {
+			margin: 0;
+		}
 	}
 
 	&__cart {
@@ -73,30 +73,100 @@
 .burger {
 	position: relative;
 	display: none;
+	width: 40px;
+	height: 32px;
+	border: 0;
+	background-color: transparent;
 	
 	&::after,&::before,span {
+		position: absolute;
+		left: 0;
 		width: 100%;
 		height: 2px;
 		background-color: #fff;
 		border-radius: 2px;
+		transition-timing-function: $es;
 	}
 	&::after,&::before {
 		content: '';
 		display: block;
-		position: absolute;
-		left: 0;
-	}
-	&::after {
-		top: 0;
+		transform-origin: left top;
 	}
 	&::before {
+		top: 0;
+		transition: transform $as, top $as;
+	}
+	&::after {
 		bottom: 0;
+		transition: transform $as, bottom $as;
+	}
+	span {
+		top: 50%;
+		transform: translateY(-50%);
+		transition: transform $as;
+	}
+
+	&.active {
+		&::before {
+			top: 1px;
+			transform: rotate(45deg) translateX(1px);
+		}
+		&::after {
+			bottom: 1px;
+			transform: rotate(-45deg) translateX(-1px);
+		}
+		span {
+			transform: translateY(-50%) scale(0);
+		}
 	}
 }
 .cart-link {
+	img {
+		display: block;
+		transition: transform $as $es;
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
 }
 
 .page {
-	min-height: 100vh;
-	background-image: url("../image/page/page-bg.jpg");
+	position: relative;
+	height: 100vh;
+	overflow: hidden;
+	&__bgi {
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		width: 100%;
+		height: 100%;
+
+		background-image: url("../image/page/page-bg.jpg");
+	}
+}
+
+@media screen and (max-width: 1250px){
+	.header {
+		.logo {
+			font-size: 28px;
+		}
+		&__item {
+			margin: 0 26px 0 0;
+			a {
+				font-size: 16px;
+			}
+		}
+		.btn {
+			padding: 10px 28px;
+		}
+	}
+}
+@media screen and (max-width: $md2){
+	.nav {
+		display: none !important;
+	}
+	.burger {
+		display: block;
+	}
 }

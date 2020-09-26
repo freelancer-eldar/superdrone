@@ -30,12 +30,14 @@
 //button
 .btn {
 	position: relative;
+	overflow: hidden;
 	display: block;
 	padding: 16px 46px;
 	transform: skewX(-10deg);
 	border: 2px solid #fff;
 	transition: background-color $as $es;
 	span {
+		position: relative;
 		display: block;
 		transform: skew(10deg);
 
@@ -45,10 +47,35 @@
 		font-weight: 700;
 		text-transform: uppercase;
 		letter-spacing: 0.45px;
-		transition: background-color $as $es;
+		transition: color $as $es;
+
+		z-index: 5;
+	}
+	&::after,&::before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		height: 100%;
+		width: 51%;
+		background-color: #fff;
+		z-index: 2;
+	}
+	&::after {
+		left: -50.5%;
+		transition: left $as $es;
+	}
+	&::before {
+		right: -50.5%;
+		transition: right $as $es;
 	}
 	&:hover {
-		background-color: #fff;
+		&::after {
+			left: 0;
+		}
+		&::before {
+			right: 0;
+		}
 		span {
 			color: #000;
 		}
@@ -58,3 +85,9 @@
 ::selection {background: #58a1d9; color: #fff;}
 ::-moz-selection {background: #58a1d9; color: #fff;}
 ::-webkit-selection {background: #58a1d9; color: #fff;}
+
+body {
+	&.active {
+		overflow: hidden;
+	}
+}
