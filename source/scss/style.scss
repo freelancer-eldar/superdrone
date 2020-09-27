@@ -5,15 +5,27 @@
 	width: 100%;
 	padding: 65px 45px 0;
 	z-index: 200;
+
+	&__blur {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0,0,0,.2);
+		backdrop-filter: blur(2px);
+	}
 	&__row {
 		width: 100%;
 		justify-content: space-between;
 		nav {
 			padding: 0 $mm;
+			z-index: 80;
 		}
 	}
 
 	&__column {
+		position: relative;
 		align-items: center;
 	}
 
@@ -57,9 +69,6 @@
 	&__cart {
 		margin: 0 26px 0 0;
 	}
-
-	&__login {
-	}
 }
 .logo {
 	color: #fff;
@@ -80,7 +89,7 @@
 	
 	&::after,&::before,span {
 		position: absolute;
-		left: 0;
+		right: 0;
 		width: 100%;
 		height: 2px;
 		background-color: #fff;
@@ -90,7 +99,7 @@
 	&::after,&::before {
 		content: '';
 		display: block;
-		transform-origin: left top;
+		transform-origin: right top;
 	}
 	&::before {
 		top: 0;
@@ -109,11 +118,11 @@
 	&.active {
 		&::before {
 			top: 1px;
-			transform: rotate(45deg) translateX(1px);
+			transform: rotate(-45deg);
 		}
 		&::after {
 			bottom: 1px;
-			transform: rotate(-45deg) translateX(-1px);
+			transform: rotate(45deg) translateX(1px);
 		}
 		span {
 			transform: translateY(-50%) scale(0);
@@ -127,22 +136,6 @@
 		&:hover {
 			transform: scale(1.1);
 		}
-	}
-}
-
-.page {
-	position: relative;
-	height: 100vh;
-	overflow: hidden;
-	&__bgi {
-		position: absolute;
-		top: 0;
-		left: 0;
-
-		width: 100%;
-		height: 100%;
-
-		background-image: url("../image/page/page-bg.jpg");
 	}
 }
 
@@ -164,9 +157,95 @@
 }
 @media screen and (max-width: $md2){
 	.nav {
-		display: none !important;
+		position: fixed;
+		top: -100%;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		align-items: flex-start;
+		justify-content: center;
+		padding: $mm $mm 40px !important;
+		flex-direction: column;
+		background-color: rgba(#000,.6);
+		transition: top $as $es;
+
+		&.active {
+			top: 0;
+		}
+	}
+	.nav {
+		&__inner {
+			margin: 130px 0 0;
+			overflow: auto;
+		}
+	}
+	.header {
+		&__list {
+			flex-direction: column;
+		}
+		&__item {
+			margin: 0 0 20px;
+			a {
+				font-size: 24px;
+				text-transform: capitalize;
+			}
+		}
+		&__column {
+			z-index: 100;
+		}
 	}
 	.burger {
 		display: block;
+		z-index: 100;
+	}
+}
+
+.page {
+	position: relative;
+	height: 100vh;
+	overflow: hidden;
+	justify-content: center;
+	align-items: center;
+	&__bgi {
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		width: 100%;
+		height: 100%;
+
+		background-image: url("../image/page/page-bg.jpg");
+		z-index: 1;
+	}
+
+	&__content {
+		position: relative;
+		text-align: center;
+		z-index: 5;
+	}
+
+	&__title {
+		h1 {
+			color: #fff;
+			font-size: 160px;
+			font-weight: 700;
+			letter-spacing: 4px;
+		}
+	}
+
+	&__subtitle {
+		color: #fff;
+		font-size: 18px;
+		font-weight: 400;
+		letter-spacing: 0.45px;
+		margin: 0 0 56px;
+	}
+
+	&__link-block {
+	}
+
+	&__link {
+		width: 220px;
+		margin: 0 auto;
 	}
 }

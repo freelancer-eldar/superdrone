@@ -12,6 +12,7 @@
 <body>
 
 	<header class="header">
+		<div class="header__blur"></div>
 		<div class="header__row df">
 			<div class="header__column df">
 				<div class="logo">superdrone.</div>
@@ -20,12 +21,14 @@
 				<span></span>
 			</button>
 			<nav class="header__column nav df">
-				<ul class="header__list df">
-					<li class="header__item"><a href="#">Meet the product</a></li>
-					<li class="header__item"><a href="#">Meet the company</a></li>
-					<li class="header__item"><a href="#">Support</a></li>
-					<li class="header__item"><a href="#">Blog</a></li>
-				</ul>
+				<div class="nav__inner">
+					<ul class="header__list df">
+						<li class="header__item"><a href="#">Meet the product</a></li>
+						<li class="header__item"><a href="#">Meet the company</a></li>
+						<li class="header__item"><a href="#">Support</a></li>
+						<li class="header__item"><a href="#">Blog</a></li>
+					</ul>
+				</div>
 			</nav>
 			<div class="header__column df">
 				<div class="header__cart">
@@ -39,8 +42,19 @@
 			</div>
 		</div>
 	</header>
-	<section class="page">
+	<section class="page df">
 		<div class="page__bgi bgi"></div>
+		<div class="container">
+			<div class="page__content">
+				<div class="page__title">
+					<h1>Your Receptionist Anywhere</h1>
+				</div>
+				<div class="page__subtitle">When a user taps on a button in a mobile app, and the button pulls down a navigation, that’s a microinteraction.</div>
+				<div class="page__link-block">
+					<a class="page__link btn" href="#"><span>buy now</span></a>
+				</div>
+			</div>
+		</div>
 	</section>
 	<div style="width: 100%;height: 1px;margin-top: 150vh;"></div>
 </body>
